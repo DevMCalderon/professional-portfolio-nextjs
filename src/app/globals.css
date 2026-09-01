@@ -128,3 +128,24 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+  .nav-link {
+    @apply text-sm md:text-lg font-medium tracking-[0.8px] duration-300 ease-in-out hover:opacity-100 relative text-neutral-400
+    py-2
+    transition-colors
+    hover:text-white
+    after:absolute
+    after:bottom-0
+    after:left-1/2
+    after:h-0.5
+    after:w-0
+    after:-translate-x-1/2
+    after:bg-current
+    after:text-amber-500
+    after:transition-all
+    after:duration-300
+    after:ease-out
+    hover:after:w-full;
+  }
+}

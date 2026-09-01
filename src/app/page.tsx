@@ -10,9 +10,12 @@ export default function Home() {
   return (
     <>
       {/* pendiente crear las clases personalizadas de este archivo */}
-      <div className="bgBanner1">
+      <div
+      // className=" bg-[linear-gradient(to_right,rgba(11,4,34,0.82),rgba(21,2,25,0.4)),url('/images/bg1.jpg')]
+      // bg-top bg-cover bg-no-repeat bg-fixed"
+      >
         <Navbar />
-        <main className="app-container">
+        <main>
           <div className="backdrop-blur-[0.2rem]">
             <Banner />
             <Skills />

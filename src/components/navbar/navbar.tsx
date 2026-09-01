@@ -1,75 +1,103 @@
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
 import LanguageSelector from "./language-selector";
 import MobileNavbar from "./mobile-navbar";
 import Link from "next/link";
 import GoTopButton from "../go-top-button";
+import { Button } from "@base-ui/react";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <>
-      <NavigationMenu>
-        <NavigationMenuList>
-          {/* start of navigation links */}
-          {/* left side - imagen logo */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="/" />}>
-              ImagenLogo
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+    <header className="w-full">
+      <nav
+        className="fixed top-0 z-10 w-full py-2 transition-all duration-800 ease-in-out
+    before:absolute before:inset-0 before:-z-10
+    before:content-['']
+    before:transition-opacity before:duration-500
+      "
+      >
+        <div className="max-w-[90vw] flex items-center justify-between mx-auto">
+          {/* left side: logo */}
+          <div>
+            <Link href={"/"}>
+              <Image
+                src={"/images/logo.png"}
+                alt="Logo de Samuel Calderón"
+                width={48}
+                height={48}
+                className="mr-8"
+              />
+            </Link>
+          </div>
 
-          {/* central navigation links */}
-          {/* Home */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="/" />}>
-              Inicio
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+          {/* central side: navigation links */}
+          <ul className="hidden lg:flex items-center gap-8">
+            <li>
+              <Link href={"/"} className="nav-link">
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link href={"#skills"} className="nav-link">
+                Habilidades
+              </Link>
+            </li>
+            <li>
+              <Link href={"#projects"} className="nav-link">
+                Proyectos
+              </Link>
+            </li>
+            <li>
+              <Link href={"#about"} className="nav-link">
+                Acerca de mí
+              </Link>
+            </li>
+          </ul>
 
-          {/* Skills */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="#skills" />}>
-              Habilidades
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          {/* Projects */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="#projects" />}>
-              Proyectos
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          {/* About me */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="#about" />}>
-              Acerca de mí
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          {/* right side */}
-          {/* language selector */}
-          <NavigationMenuItem>
+          {/* right side: language CTA */}
+          <div className="flex items-center gap-8">
             <LanguageSelector />
-          </NavigationMenuItem>
 
-          {/* contact me button */}
-          <NavigationMenuItem>
-            <NavigationMenuLink render={<Link href="#contact" />}>
-              Contáctame
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+            <Button
+              nativeButton={false}
+              className=" group
+            relative
+            inline-flex
+            items-center
+            justify-center
+            overflow-hidden
+            border
+            border-white
+            bg-transparent
+            px-6
+            py-3
+            text-base
+            font-bold
+            text-white
+            transition-colors
+            duration-300
+            hover:text-neutral-900
 
-          {/* end of navigation links */}
-        </NavigationMenuList>
-      </NavigationMenu>
-
+            before:absolute
+            before:inset-0
+            before:w-0
+            before:bg-white
+            before:transition-all
+            before:duration-300
+            before:ease-in-out
+            hover:before:w-full"
+              render={
+                <Link href="#contact">
+                  <span className="relative z-10">
+                    {"< "}Contáctame{" />"}
+                  </span>
+                </Link>
+              }
+            ></Button>
+          </div>
+        </div>
+      </nav>
       <MobileNavbar />
       <GoTopButton />
-    </>
+    </header>
   );
 }
