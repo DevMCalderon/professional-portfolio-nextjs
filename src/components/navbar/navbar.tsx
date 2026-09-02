@@ -4,6 +4,7 @@ import Link from "next/link";
 import GoTopButton from "../go-top-button";
 import { Button } from "@base-ui/react";
 import Image from "next/image";
+import ThemeSelector from "./theme-selector";
 
 export default function Navbar() {
   return (
@@ -15,7 +16,7 @@ export default function Navbar() {
     before:transition-opacity before:duration-500
       "
       >
-        <div className="max-w-[90vw] flex items-center justify-between mx-auto">
+        <div className="max-w-11/12 md:max-w-6xl flex items-center justify-between mx-auto">
           {/* left side: logo */}
           <div>
             <Link href={"/"}>
@@ -24,7 +25,6 @@ export default function Navbar() {
                 alt="Logo de Samuel Calderón"
                 width={48}
                 height={48}
-                className="mr-8"
               />
             </Link>
           </div>
@@ -55,36 +55,37 @@ export default function Navbar() {
 
           {/* right side: language CTA */}
           <div className="flex items-center gap-8">
+            <ThemeSelector />
             <LanguageSelector />
-
             <Button
               nativeButton={false}
               className=" group
-            relative
-            inline-flex
-            items-center
-            justify-center
-            overflow-hidden
-            border
-            border-white
-            bg-transparent
-            px-6
-            py-3
-            text-base
-            font-bold
-            text-white
-            transition-colors
-            duration-300
-            hover:text-neutral-900
+              relative
+              inline-flex
+              items-center
+              justify-center
+              text-nowrap
+              overflow-hidden
+              border
+              bg-transparent
+              px-6
+              py-3
+              text-base
+              font-bold
+              border-white
+              text-white
+              transition-colors
+              duration-300
+              hover:text-neutral-900
 
-            before:absolute
-            before:inset-0
-            before:w-0
-            before:bg-white
-            before:transition-all
-            before:duration-300
-            before:ease-in-out
-            hover:before:w-full"
+              before:absolute
+              before:inset-0
+              before:w-0
+               before:bg-white
+              before:transition-all
+              before:duration-300
+              before:ease-in-out
+              hover:before:w-full"
               render={
                 <Link href="#contact">
                   <span className="relative z-10">
