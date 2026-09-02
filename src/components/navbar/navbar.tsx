@@ -5,6 +5,7 @@ import GoTopButton from "../go-top-button";
 import { Button } from "@base-ui/react";
 import Image from "next/image";
 import ThemeSelector from "./theme-selector";
+import { FolderCode, House, Mail, UserRound, Wrench } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -17,41 +18,54 @@ export default function Navbar() {
       "
       >
         <div className="max-w-11/12 md:max-w-6xl flex items-center justify-between mx-auto">
-          {/* left side: logo */}
-          <div>
+          {/* left side: logo & navigation links */}
+          <div className="flex justify-center items-center gap-8">
             <Link href={"/"}>
               <Image
                 src={"/images/logo.png"}
-                alt="Logo de Samuel Calderón"
-                width={48}
-                height={48}
+                alt="Logo de Calderón"
+                width={160}
+                height={160}
               />
             </Link>
-          </div>
 
-          {/* central side: navigation links */}
-          <ul className="hidden lg:flex items-center gap-8">
-            <li>
-              <Link href={"/"} className="nav-link">
-                Inicio
-              </Link>
-            </li>
-            <li>
-              <Link href={"#skills"} className="nav-link">
-                Habilidades
-              </Link>
-            </li>
-            <li>
-              <Link href={"#projects"} className="nav-link">
-                Proyectos
-              </Link>
-            </li>
-            <li>
-              <Link href={"#about"} className="nav-link">
-                Acerca de mí
-              </Link>
-            </li>
-          </ul>
+            {/* central side: navigation links */}
+            <ul className="hidden lg:flex items-center gap-8">
+              <li>
+                <Link href={"/"} className="nav-link flex items-center gap-2">
+                  <House size={18} />
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"#skills"}
+                  className="nav-link flex items-center gap-2"
+                >
+                  <Wrench size={18} />
+                  Habilidades
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"#projects"}
+                  className="nav-link flex items-center gap-2"
+                >
+                  <FolderCode size={18} />
+                  Proyectos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"#about"}
+                  className="nav-link flex items-center gap-2"
+                >
+                  <UserRound size={18} />
+                  Acerca de mí
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* right side: language CTA */}
           <div className="flex items-center gap-8">
@@ -88,8 +102,9 @@ export default function Navbar() {
               hover:before:w-full"
               render={
                 <Link href="#contact">
-                  <span className="relative z-10">
-                    {"< "}Contáctame{" />"}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Mail size={18} />
+                    Contáctame
                   </span>
                 </Link>
               }
