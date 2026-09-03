@@ -12,6 +12,7 @@ export default function ThemeSelector() {
       type="button"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label="Cambiar tema"
+      className={"text-foreground hover:text-primary"}
     >
       {resolvedTheme === "dark" ? <Sun /> : <Moon />}
     </Button>
