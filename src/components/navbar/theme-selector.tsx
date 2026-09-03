@@ -10,6 +10,7 @@ export default function ThemeSelector() {
     <Button
       variant="ghost"
       type="button"
+      size="icon"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label="Cambiar tema"
       className={"text-foreground hover:text-primary"}
